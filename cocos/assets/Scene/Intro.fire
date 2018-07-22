@@ -462,7 +462,7 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 3.7500000000000013
+      "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -476,7 +476,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": -150
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -514,7 +514,7 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 4.699999999999999
+      "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",

@@ -12,33 +12,41 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+      timeDisplay: {
+        default: null,
+        type: cc.Label
+      },
+      pauseFlag: false
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+      this.timer = 0;
+    },
     backToIntro () {
       cc.director.loadScene('Intro');
     },
 
     start () {
-
     },
 
-    // update (dt) {},
+    gamePause () {
+      this.pauseFlag = true;
+    },
+
+    gameOn () {
+      this.pauseFlag = false;
+    },
+
+    update (dt) {
+      if (this.pauseFlag) {
+        return;
+      }
+      this.timer += dt;
+      var dateTime = Math.floor(this.timer);
+      var min = Math.floor(dateTime / 60);
+      var sec = dateTime % 60;
+      this.timeDisplay.string = (min >= 10 ? '' : '0') + min + ':' + (sec >= 10 ? '' : '0') + sec;
+    },
 });
